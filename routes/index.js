@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
     res.send('Hello World its me');
 });
 
-// router.use('/posts', require('./posts')); // Load 'posts' routes
+
+// router.use('/swagger.js', require('./')); // Load 'posts' routes
 
 module.exports = router;

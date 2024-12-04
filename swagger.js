@@ -32,4 +32,4 @@ const swaggerOptions = {
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 
 // Use Swagger UI
-app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocs)); 
+server.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocs)); 
