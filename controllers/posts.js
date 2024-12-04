@@ -32,12 +32,13 @@ const getSingle = async (req, res) => {
 // Function to create or replace a post in the database.
 const createPost = async (req, res) => {
     const post = {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email,
-        favoriteColor: req.body.favoriteColor,
-        birthdate: req.body.birthdate  // Ensure this matches your request field name
-    };
+        title: req.body.title,
+        description: req.body.description,
+        dueDate: req.body.dueDate,
+        priority: req.body.priority,
+        status: req.body.status,
+        createdBy: req.body.createdBy
+    };  
 
     try {
         const response = await mongodb.getDatabase().collection('posts').insertOne(post);
@@ -57,11 +58,12 @@ const UpdatePost = async (req, res) => {
     const postId = new ObjectId(req.params.id);
 
     const post = {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email,
-        favoriteColor: req.body.favoriteColor,
-        birthdate: req.body.birthdate 
+        title: req.body.title,
+        description: req.body.description,
+        dueDate: req.body.dueDate,
+        priority: req.body.priority,
+        status: req.body.status,
+        createdBy: req.body.createdBy
     };  
 
     try {

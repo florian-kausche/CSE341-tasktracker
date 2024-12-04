@@ -3,7 +3,7 @@ GET http://localhost:3000/posts HTTP/1.1
 
 
 ### GET Request by ID
-GET http://localhost:3000/posts/66fc4b279127d896559a94f7
+GET http://localhost:3000/posts/674f089bae6ecc5f1e199fb0
 
 
 ### POST Request (Create a post)
@@ -11,26 +11,29 @@ POST http://localhost:3000/posts/ HTTP/1.1
 Content-Type: application/json
 
 {
-    "firstName": "Florian",
-    "lastName": "Jacobson",
-    "email": "f.Jackson@example.com",
-    "favoriteColor": "brown",
-    "birthdate": "1989-03-22"
+  "title": "Team Meeting",
+  "description": "Schedule and conduct a team meeting to discuss hiring of a social media specialist.",
+  "dueDate": "2024-12-10",
+  "priority": "Low",
+  "status": "Pending",
+  "createdBy": "63a1f3e7c9a8b6a72d1e78f0"
 }
+
 
 ### PUT Request (Update a post)
-PUT http://localhost:3000/posts/67447e38f628f7a69524653d HTTP/1.1
+PUT http://localhost:3000/posts/675045ee222d66eccd296ef9 HTTP/1.1
 Content-Type: application/json
 
-{
-    "firstName": "Emilia",
-    "lastName": "Jacobs",
-    "email": "e.Jackson@example.com",
-    "favoriteColor": "brown",
-    "birthdate": "1979-04-22"
-}
+ {
+    "title": "Team Meeting",
+    "description": "Have a meeting with my instructor, I am having a tough time with swagger.",
+    "dueDate": "2024-12-10",
+    "priority": "medium",
+    "status": "approved",
+    "createdBy": "63a1f3e7c9a8b6a72d1e78f0"
+  }
 
 ### This is an HTTP DELETE request targeting a specific resource (post) on a server running locally (localhost) at port 3000.
 
-DELETE http://localhost:3000/posts/67498b6cfc45ffd1aae43f57 HTTP/1.1
+DELETE http://localhost:3000/posts/67503edc14f5c996dcbaee6a HTTP/1.1
 
