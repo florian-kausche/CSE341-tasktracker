@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Contacts API",
-    "description": "API for managing contacts",
+    "title": "posts API",
+    "description": "API for managing posts",
     "version": "1.0.0"
   },
   "host": "https://cse341-project-fzn3.onrender.com",

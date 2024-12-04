@@ -1,7 +1,7 @@
 const express = require('express');
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
-const contactsRoutes = require('./routes/contacts');
+const postsRoutes = require('./routes/posts');
 
 const app = express();
 
@@ -26,7 +26,7 @@ const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // Use your routes
-app.use('/api', contactsRoutes);
+app.use('/api', postsRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

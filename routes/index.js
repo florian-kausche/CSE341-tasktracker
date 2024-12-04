@@ -1,19 +1,19 @@
 const express = require('express');
 const router = express.Router();
-const contactsController = require('../controllers/contacts');
+const postsController = require('../controllers/posts');
 
 
 // Define routes
-router.get('/contacts', contactsController.getAll);
-router.get('/contacts/:id', contactsController.getSingle);
-router.post('/contacts', contactsController.CreateContact);
-router.put('/contacts/:id', contactsController.UpdateContact);
-router.delete('/contacts/:id', contactsController.deleteContact);
+router.get('/posts', postsController.getAll);
+router.get('/posts/:id', postsController.getSingle);
+router.post('/posts', postsController.createPost);
+router.put('/posts/:id', postsController. UpdatePost);
+router.delete('/posts/:id', postsController.deletePost);
 
 router.get('/', (req, res) => {
     res.send('Hello World its me');
 });
 
-// router.use('/contacts', require('./contacts')); // Load 'contacts' routes
+// router.use('/posts', require('./posts')); // Load 'posts' routes
 
 module.exports = router;
