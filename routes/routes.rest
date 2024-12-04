@@ -1,0 +1,4 @@
+# Use URL to send a GET request to the specified endpoint to fetch all contacts.
+GET https://cse341-project-fzn3.onrender.com/contacts
+
+

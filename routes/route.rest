@@ -1,0 +1,36 @@
+# GET Request
+GET http://localhost:3000/contacts HTTP/1.1
+
+
+### GET Request by ID
+GET http://localhost:3000/contacts/66fc4b279127d896559a94f7
+
+
+### POST Request (Create a contact)
+POST http://localhost:3000/contacts/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Florian",
+    "lastName": "Jacobson",
+    "email": "f.Jackson@example.com",
+    "favoriteColor": "brown",
+    "birthdate": "1989-03-22"
+}
+
+### PUT Request (Update a contact)
+PUT http://localhost:3000/contacts/67447e38f628f7a69524653d HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Emilia",
+    "lastName": "Jacobs",
+    "email": "e.Jackson@example.com",
+    "favoriteColor": "brown",
+    "birthdate": "1979-04-22"
+}
+
+### This is an HTTP DELETE request targeting a specific resource (contact) on a server running locally (localhost) at port 3000.
+
+DELETE http://localhost:3000/contacts/67498b6cfc45ffd1aae43f57 HTTP/1.1
+
