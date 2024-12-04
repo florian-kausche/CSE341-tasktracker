@@ -11,7 +11,7 @@ router.put('/contacts/:id', contactsController.UpdateContact);
 router.delete('/contacts/:id', contactsController.deleteContact);
 
 router.get('/', (req, res) => {
-    res.send('Hello World');
+    res.send('Hello World its me');
 });
 
 // router.use('/contacts', require('./contacts')); // Load 'contacts' routes
