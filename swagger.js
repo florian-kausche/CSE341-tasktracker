@@ -1,38 +1,36 @@
-
-
-const swaggerAutogen = require('swagger-autogen')();
-
 const swaggerUi = require('swagger-ui-express');
 const fs = require('fs');
 const path = require('path');
 const express = require('express');
+const swaggerJsDoc = require('swagger-jsdoc');
 
 const server = express();
 
-// Swagger Autogen Config
-const doc = {
-  info: {
-    title: 'Task Tracker API',
-    description: 'API for managing tasks',
+// Swagger options
+const swaggerOptions = {
+  swaggerDefinition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'CSE341 Task Tracker API',
+      version: '1.0.0',
+      description: 'API for managing tasks',
+    },
+    servers: [
+      {
+        url: 'http://localhost:3000',
+      },
+    ],
   },
-  host: process.env.SWAGGER_HOST || 'localhost:3000', // Default to local for development
-  schemes: process.env.SWAGGER_SCHEMES?.split(',') || ['https'], // Use 'https' for production
+  apis: ['./routes/*.js'], // Adjust this path as needed
+  apis: ['./controllers/*.js'], // Adjust this path to point to your controller files
 };
 
-const outputFile = './swagger.json';
-const endpointsFiles = ['./routes/posts']; // Adjust to match your routes
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
-// Generate Swagger output file and then start the server
-swaggerAutogen(outputFile, endpointsFiles, doc).then(() => {
-  const swaggerDocument = JSON.parse(fs.readFileSync(outputFile, 'utf8'));
-  server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-
-  // Start the server
-  const PORT = process.env.PORT || 3000;
-  server.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-    console.log(`Swagger docs available at https://localhost:${PORT}/api-docs`);
-  });
-}).catch(err => {
-  console.error('Failed to generate Swagger documentation:', err);
+// Start the server
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+  console.log(`Swagger docs available at http://localhost:${PORT}/api-docs`);
 });

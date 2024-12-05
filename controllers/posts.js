@@ -4,7 +4,15 @@ const mongodb = require('../data/database');
 // Import the 'ObjectId' class from the 'mongodb' module for handling MongoDB document IDs.
 const ObjectId = require('mongodb').ObjectId;
 
-// Function to get all posts from the 'posts' collection.
+/**
+ * @swagger
+ * /posts:
+ *   get:
+ *     summary: Retrieve all posts
+ *     responses:
+ *       200:
+ *         description: A list of posts
+ */
 const getAll = async (req, res) => {
     // Fetch all documents in the 'posts' collection.
     const result = await mongodb.getDatabase().collection('posts').find();
@@ -15,7 +23,22 @@ const getAll = async (req, res) => {
     });
 }
 
-// Function to get a single post by its ID.
+/**
+ * @swagger
+ * /posts/{id}:
+ *   get:
+ *     summary: Retrieve a post by ID
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: The ID of the post to retrieve
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Post retrieved
+ */
 const getSingle = async (req, res) => {
     // Create a new ObjectId from the ID provided in the request parameters.
     const postId = new ObjectId(req.params.id);
@@ -29,7 +52,34 @@ const getSingle = async (req, res) => {
     });
 }
 
-// Function to create or replace a post in the database.
+/**
+ * @swagger
+ * /posts:
+ *   post:
+ *     summary: Create a new post
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               title:
+ *                 type: string
+ *               description:
+ *                 type: string
+ *               dueDate:
+ *                 type: string
+ *               priority:
+ *                 type: string
+ *               status:
+ *                 type: string
+ *               createdBy:
+ *                 type: string
+ *     responses:
+ *       201:
+ *         description: Post created
+ */
 const createPost = async (req, res) => {
     const post = {
         title: req.body.title,
@@ -52,8 +102,41 @@ const createPost = async (req, res) => {
     }
 };
 
-
-// Function to update an existing post.
+/**
+ * @swagger
+ * /posts/{id}:
+ *   put:
+ *     summary: Update a post by ID
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: The ID of the post to update
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               title:
+ *                 type: string
+ *               description:
+ *                 type: string
+ *               dueDate:
+ *                 type: string
+ *               priority:
+ *                 type: string
+ *               status:
+ *                 type: string
+ *               createdBy:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Post updated
+ */
 const UpdatePost = async (req, res) => {
     const postId = new ObjectId(req.params.id);
 
@@ -82,7 +165,22 @@ const UpdatePost = async (req, res) => {
     }
 };
 
-// Function to delete a post.
+/**
+ * @swagger
+ * /posts/{id}:
+ *   delete:
+ *     summary: Delete a post by ID
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: The ID of the post to delete
+ *         schema:
+ *           type: string
+ *     responses:
+ *       204:
+ *         description: Post deleted
+ */
 const deletePost = async (req, res) => {
     const postId = new ObjectId(req.params.id); // Create an ObjectId from the request parameter.
 
