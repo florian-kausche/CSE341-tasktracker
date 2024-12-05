@@ -6,3 +6,6 @@ node_modules/
 
 # Ignore all files in a specific directory
 path/to/directory/
+
+#This prevents .env file from being tracked by Git.
+.env
