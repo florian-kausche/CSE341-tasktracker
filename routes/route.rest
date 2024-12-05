@@ -1,9 +1,6 @@
 # GET Request
 GET http://localhost:3000/posts HTTP/1.1
 
-#### GET Request
-GET http://localhost:3000/swagger HTTP/1.1
-
 ### GET Request by ID
 GET http://localhost:3000/posts/674f089bae6ecc5f1e199fb0
 

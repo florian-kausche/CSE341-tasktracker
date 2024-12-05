@@ -11,10 +11,9 @@ router.put('/posts/:id', postsController. UpdatePost);
 router.delete('/posts/:id', postsController.deletePost);
 
 router.get('/', (req, res) => {
-    res.send('Hello World its me');
+    res.send('Hello World it/s me');
 });
 
-
-// router.use('/swagger.js', require('./')); // Load 'posts' routes
+// router.use('/posts', require('./posts')); // Load 'posts' routes
 
 module.exports = router;

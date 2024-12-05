@@ -1,5 +1,5 @@
 const express = require('express');
-const swaggerDocs = require('/swagger'); // Path to the configuration file
+const swaggerDocs = require('./swagger'); // Path to the configuration file
 const swaggerUi = require('swagger-ui-express');
 const postsRoutes = require('./routes/posts');
 
@@ -31,5 +31,5 @@ app.use('/api', postsRoutes);
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
- 
+  console.log(`Swagger docs available at http://localhost:${PORT}/swagger`);
 });
