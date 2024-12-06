@@ -11,11 +11,11 @@ const setupSwagger = (app) => {
         version: '1.0.0',
         description: 'API for managing tasks',
       },
-      servers: [
-        {
-          url: 'https://cse341-tasktracker.onrender.com',
-        },
-      ],
+      // servers: [
+      //   {
+      //     url: 'https://cse341-tasktracker.onrender.com',
+      //   },
+      // ],
     },
     apis: ['./routes/index.js', './controllers/posts.js'], // Adjust this path as needed
   };
