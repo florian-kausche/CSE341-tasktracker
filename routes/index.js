@@ -11,7 +11,7 @@ router.put('/posts/:id', postsController. UpdatePost);
 router.delete('/posts/:id', postsController.deletePost);
 
 router.get('/', (req, res) => {
-    res.send('Hello World it/s me');
+    res.send('Hello World its me, Florian');
 });
 
 // router.use('/posts', require('./posts')); // Load 'posts' routes
