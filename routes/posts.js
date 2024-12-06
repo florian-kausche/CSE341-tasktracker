@@ -1,32 +1,32 @@
-const express = require('express');
-const swaggerDocs = require('./swagger'); // Path to the configuration file
-const swaggerUi = require('swagger-ui-express');
-const postsRoutes = require('./routes/posts');
+// const express = require('express');
+// const swaggerDocs = require('./swagger'); // Path to the configuration file
+// const swaggerUi = require('swagger-ui-express');
+// const postsRoutes = require('./routes/posts');
 
-const server = express();
+// const server = express();
 
-// Swagger options
-const swaggerOptions = {
-  swaggerDefinition: {
-    openapi: '3.0.0',
-    info: {
-      title: 'API Documentation',
-      version: '1.0.0',
-    },
-    servers: [
-      {
-        url: 'http://localhost:3000',
-      },
-    ],
-  },
-  apis: ['./routes/index.js'], // Adjust this path as needed
-};
+// // Swagger options
+// const swaggerOptions = {
+//   swaggerDefinition: {
+//     openapi: '3.0.0',
+//     info: {
+//       title: 'API Documentation',
+//       version: '1.0.0',
+//     },
+//     servers: [
+//       {
+//         url: 'http://localhost:3000',
+//       },
+//     ],
+//   },
+//   apis: ['./routes/index.js'], // Adjust this path as needed
+// };
 
-const swaggerDocs = swaggerJsDoc(swaggerOptions);
-server.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+// const swaggerDocs = swaggerJsDoc(swaggerOptions);
+// server.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
-// Use your routes
-app.use('/api', postsRoutes);
+// // Use your routes
+// app.use('/api', postsRoutes);
 
 // const PORT = process.env.PORT || 3000;
 // app.listen(PORT, () => {
