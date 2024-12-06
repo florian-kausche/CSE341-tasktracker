@@ -1,12 +1,15 @@
 const express = require('express');
 const mongodb = require('./data/database'); // Import the 'database' module
-const bodyParser = require('body-parser'); // Optional, if required
 require('dotenv').config(); // Load environment variables (optional if using .env)
 
 const app = express();
 
-// Use Express's built-in JSON parser middleware (body-parser is redundant here)
+// Use Express's built-in JSON parser middleware
 app.use(express.json());
+
+// Import Swagger setup
+const swaggerSetup = require('./swagger');
+swaggerSetup(app); // Call the function to set up Swagger
 
 // Middleware for routes defined in './routes'
 app.use('/', require('./routes'));
@@ -21,6 +24,7 @@ const startServer = async () => {
     await mongodb.initDb(); // Assuming initDb returns a promise
     app.listen(port, () => {
       console.log(`Server is running and node is running on port ${port}`);
+      console.log(`Swagger docs available at http://localhost:${port}/api-docs`);
     });
   } catch (err) {
     console.error('Failed to connect to the database:', err);
