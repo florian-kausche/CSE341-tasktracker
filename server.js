@@ -1,22 +1,35 @@
 const express = require('express');
 const mongodb = require('./data/database'); // Import the 'database' module
+const bodyParser = require('body-parser'); // Optional, if required
+const swaggerUi = require('swagger-ui-express');
+const swaggerJsDoc = require('swagger-jsdoc');
 require('dotenv').config(); // Load environment variables (optional if using .env)
-const cors = require('cors');
 
 const app = express();
 
-app.use(cors()); // Enable CORS globally for all routes
-
-app.get('/posts', (req, res) => {
-  res.json({ message: 'CORS enabled!' });
-});
-
-// Use Express's built-in JSON parser middleware
+// Use Express's built-in JSON parser middleware (body-parser is redundant here)
 app.use(express.json());
 
-// Import Swagger setup
-const swaggerSetup = require('./swagger');
-swaggerSetup(app); // Call the function to set up Swagger
+// Swagger options
+const swaggerOptions = {
+  swaggerDefinition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'CSE341 Task Tracker API',
+      version: '1.0.0',
+      description: 'API for managing tasks',
+    },
+    servers: [
+      {
+        url: 'http://localhost:3000',
+      },
+    ],
+  },
+  apis: ['./routes/index.js', './controllers/posts.js'], // Adjust this path as needed
+};
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // Middleware for routes defined in './routes'
 app.use('/', require('./routes'));
