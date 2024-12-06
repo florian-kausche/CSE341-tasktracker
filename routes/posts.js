@@ -19,7 +19,7 @@ const swaggerOptions = {
       },
     ],
   },
-  apis: ['./routes/*.js'], // Adjust this path as needed
+  apis: ['./routes/index.js'], // Adjust this path as needed
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
