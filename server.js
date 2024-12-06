@@ -3,11 +3,14 @@ const mongodb = require('./data/database'); // Import the 'database' module
 const bodyParser = require('body-parser'); // Optional, if required
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsDoc = require('swagger-jsdoc');
+const cors = require('cors'); // Import CORS
 require('dotenv').config(); // Load environment variables (optional if using .env)
 
 const app = express();
 
-// Use Express's built-in JSON parser middleware (body-parser is redundant here)
+// Enable CORS for all routes
+app.use(cors());
+
 app.use(express.json());
 
 // Swagger options
