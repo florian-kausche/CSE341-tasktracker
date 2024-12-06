@@ -13,7 +13,7 @@ const setupSwagger = (app) => {
       },
       servers: [
         {
-          url: 'http://localhost:3000',
+          url: 'https://cse341-tasktracker.onrender.com',
         },
       ],
     },
