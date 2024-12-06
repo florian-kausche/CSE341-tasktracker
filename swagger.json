@@ -5,12 +5,12 @@
     "description": "API for managing tasks",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+ 
+  "host":"https://cse341-tasktracker.onrender.com",
   "basePath": "/",
   "schemes": [
     "http",
     "https"
   ],
-  
   "paths": {}
 }
