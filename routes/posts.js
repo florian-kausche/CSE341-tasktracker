@@ -28,11 +28,11 @@ server.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 // Use your routes
 app.use('/api', postsRoutes);
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-  console.log(`Swagger docs available at http://localhost:${PORT}/swagger`);
-});
+// const PORT = process.env.PORT || 3000;
+// app.listen(PORT, () => {
+//   console.log(`Server is running on http://localhost:${PORT}`);
+//   console.log(`Swagger docs available at http://localhost:${PORT}/swagger`);
+// });
 
 /**
  * @swagger
