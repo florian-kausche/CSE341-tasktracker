@@ -1,5 +1,8 @@
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsDoc = require('swagger-jsdoc');
+const cors = require('cors');
+
+app.use(cors()); // Enable CORS for Swagger
 
 const setupSwagger = (app) => {
   // Swagger options

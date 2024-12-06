@@ -1,8 +1,15 @@
 const express = require('express');
 const mongodb = require('./data/database'); // Import the 'database' module
 require('dotenv').config(); // Load environment variables (optional if using .env)
+const cors = require('cors');
 
 const app = express();
+
+app.use(cors()); // Enable CORS globally for all routes
+
+app.get('/posts', (req, res) => {
+  res.json({ message: 'CORS enabled!' });
+});
 
 // Use Express's built-in JSON parser middleware
 app.use(express.json());
