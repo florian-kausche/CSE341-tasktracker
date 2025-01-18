@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Sets the character encoding to UTF-8 for proper character display -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures the page is responsive on all screen sizes -->
+    <title>Register</title> <!-- The title of the page shown in the browser tab -->
+    <link rel="stylesheet" href="styles.css"> <!-- Links to an external stylesheet for styling the page -->
+    <style>
+        /* Defines a CSS class to hide elements */
+        .hidden {
+            display: none;
+        }
+
+        /* Defines a CSS class to show elements */
+        .visible {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h2>Register</h2> <!-- Page heading for registration -->
+        <div class="form-container">
+            <h2>Create Account</h2>
+            <form id="register-form">
+                <input 
+                    type="text" 
+                    id="username" 
+                    name="username" 
+                    placeholder="Username" 
+                    required
+                >
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    placeholder="Email" 
+                    required
+                >
+                <input 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    placeholder="Password" 
+                    required
+                >
+                <input 
+                    type="password" 
+                    id="confirm-password" 
+                    name="confirm-password" 
+                    placeholder="Confirm Password" 
+                    required
+                >
+                <button type="submit">Create Account</button>
+                <div class="divider">or</div>
+                <button 
+                    type="button" 
+                    id="github-login" 
+                    onclick="window.location.href='/auth/github'"
+                >
+                    Continue with GitHub
+                </button>
+            </form>
+            <div id="message" class="hidden">successfully Registered</div> <!-- A div to display messages after form submission, initially hidden -->
+            <p>Already have an account? <a href="login.html">Login now</a></p>
+        </div>
+    </div>
+    <script src="register.js"></script>
+</body>
+</html>
