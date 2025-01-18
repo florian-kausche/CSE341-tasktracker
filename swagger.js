@@ -7,9 +7,9 @@ const setupSwagger = (app) => {
     swaggerDefinition: {
       openapi: '3.0.0',
       info: {
-        title: 'CSE341 Task Tracker API',
+        title: 'School Management System API',
         version: '1.0.0',
-        description: 'API for managing tasks',
+        description: 'API for Displaying student records',
       },
       // servers: [
       //   {
@@ -17,7 +17,7 @@ const setupSwagger = (app) => {
       //   },
       // ],
     },
-    apis: ['./routes/index.js', './controllers/posts.js'], // Adjust this path as needed
+    apis: ['./routes/index.js', './controllers/record.js'], // Adjust this path as needed
   };
 
   const swaggerDocs = swaggerJsDoc(swaggerOptions);
