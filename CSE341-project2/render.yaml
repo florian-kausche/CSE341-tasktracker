@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: book-review-api
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: PORT
+        value: 10000 
