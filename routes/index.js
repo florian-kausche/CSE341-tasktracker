@@ -1,19 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const postsController = require('../controllers/posts');
+const postsController = require('../controllers/record');
 
 
 // Define routes
-router.get('/posts', postsController.getAll);
-router.get('/posts/:id', postsController.getSingle);
-router.post('/posts', postsController.createPost);
-router.put('/posts/:id', postsController. UpdatePost);
-router.delete('/posts/:id', postsController.deletePost);
+router.get('/record', postsController.getAll);
+router.get('/record/:id', postsController.getSingle);
+router.post('/record', postsController.createPost);
+router.put('/record/:id', postsController. UpdatePost);
+router.delete('/record/:id', postsController.deletePost);
 
 router.get('/', (req, res) => {
-    res.send('Hello World its me, Florian');
+    res.send('This is Joleens School Management System');
 });
-
-// router.use('/posts', require('./posts')); // Load 'posts' routes
 
 module.exports = router;
